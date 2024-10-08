@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>JavaJam Coffee House</title>
+	<meta charset=“utf-8”>
+	<link rel="stylesheet" href="files/css/stylesheet.css">
+</head>
+<body>
+<header>
+</header>
+<div class="wrapper">
+	<div class="navbar">
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="menu.html">Menu</a></li>
+				<li><a href="music.html">Music</a></li>
+				<li><a href="jobs.html">Jobs</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="content">
+		<h1>Jobs at JavaJam</h1>
+
+		<p>Want to work at JavaJam? Fill out the form below to start
+			your application. Required fields are marked with an
+			asterisk *</p>
+
+		<form action="show_post.php" method="post">
+			<table class="contact">
+				<tr class="contact-item">
+					<td class="item-name">
+						<label for="name">*Name:</label> 
+					</td>
+					<td class="input-field">
+						<input type="text" name="name" id="name" required placeholder ="Enter your name here"> <br> <br>
+					</td>
+				</tr>
+
+				<tr class="contact-item">
+					<td class="item-name">
+						<label for="email">*E-mail:</label>
+					</td>
+					<td class="input-field">
+						<input type="email" name="email" id="email" required placeholder ="Enter your Email-ID here"> <br> <br> 
+					</td>
+				</tr>
+
+				<tr class="contact-item">
+					<td class="item-name">
+						<label for="start-date">Start Date:</label>
+					</td>
+					<td class="input-field">
+						<input type="date" name="start-date"
+							id="start-date"> <br> <br>
+					</td>
+				</tr>
+
+				<tr class="contact-item">
+					<td class="item-name">
+						<label for="experience">*Experience</label>
+					</td>
+					<td class="input-field">
+						<textarea name="experience" id="experience"
+							rows="2" cols="30" required placeholder="Enter your past experience here"></textarea>
+					</td>
+				</tr>
+			</table>
+
+			<br>
+			<input type="reset" value="Clear">
+			<br> <br>
+			<input type="submit" value="Apply Now">
+		</form>
+	</div>
+</div>
+<footer>
+	<br>Copyright &copy; 2014 JavaJam Coffee House
+	<br> <a href=mailto:albert@zaw.com>albert@zaw.com</a>	
+</footer>
+</body>
+</html>

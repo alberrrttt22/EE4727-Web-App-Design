@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>JavaJam Coffee House</title>
+	<meta charset=“utf-8”>
+	<link rel="stylesheet" href="files/css/stylesheet.css">
+</head>
+<body>
+<header>
+</header>
+<div class="wrapper">
+	<div class="navbar">
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="menu.html">Menu</a></li>
+				<li><a href="music.html">Music</a></li>
+				<li><a href="jobs.html">Jobs</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="content">
+		<h1>Coffee at JavaJam</h1>
+
+		<table class="menu">
+			<tr class="legend">
+				<td></td>
+				<td></td>
+				<td>Single<br>(Quantity):</td>
+				<td>Double<br>(Quantity):</td>
+				<td>Subtotal:</td>
+			</tr>
+			<tr class="menu-item">
+				<td class="drink">Just Java</td>
+				<td class="description">
+					Regular house blend, decaffeinated coffee,
+					or flavor of the day.
+					<br>
+					<strong>Endless Cup $2.00</strong>
+				</td>
+				<td>
+					<input type="number" name="java-single" id="java-single" class="prices" min="0">
+				</td>
+				<td></td>
+				<td>
+					<span id="java-price" class="subtotals">$0.00</span>
+				</td>
+			</tr>
+
+			<tr class="menu-item">
+				<td class="drink">Cafe au Lait</td>
+				<td class="description">
+					House blended coffee infused into a smooth
+					steamed milk.
+					<br>
+					<strong>Single $2.00 Double $3.00</strong>
+				</td>
+				<td>
+					<input type="number" name="lait-single" id="lait-single" class="prices" min="0">
+				</td>
+				<td>
+					<input type="number" name="lait-double" id="lait-double" class="prices" min="0">
+				</td>
+				<td>
+					<span id="lait-price" class="subtotals">$0.00</span>
+				</td>
+			</tr>
+
+			<tr class="menu-item">
+				<td class="drink">Iced Cappuccino</td>
+				<td class="description">
+					Sweetened espresso blended with icy-cold
+					milk and served in a
+					chilled glass.
+					<br>
+					<strong>Single $4.75 Double $5.75</strong>
+				</td>
+				<td>
+					<input type="number" name="cap-single" id="cap-single" class="prices" min="0">
+				</td>
+				<td>
+					<input type="number" name="cap-double" id="cap-double" class="prices" min="0">
+				</td>
+				<td>
+					<span id="cap-price" class="subtotals">$0.00</span>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="total">Total Price: </td>
+				<td class="total">
+					<span id="total-price">$0.00</span>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+<script type="text/javascript" src="files/scripts/MenuCalculation.js"></script>
+<footer>
+	<br>Copyright &copy; 2014 JavaJam Coffee House
+	<br> <a href=mailto:albert@zaw.com>albert@zaw.com</a>	
+</footer>
+</body>
+</html>
