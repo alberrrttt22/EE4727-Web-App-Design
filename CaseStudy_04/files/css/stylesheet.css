@@ -182,7 +182,7 @@ table .item-name {
 	padding-right: 3em;
 }
 
-.start-error, .name-error, .email-error, .exp-error {
+#start-error, #name-error, #email-error, #exp-error {
     margin: 10px;
     color:red;
 }
