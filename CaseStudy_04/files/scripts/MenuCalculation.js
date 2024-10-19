@@ -64,6 +64,14 @@ function calculateTotal(){
 }
 
 
+document.querySelectorAll('.prices').forEach(function(input) {
+    input.addEventListener('input', function(){
+        // If the value is less than 0, reset it to 0
+        if (this.value < 0){
+            this.value = 0;
+        }
+    });
+});
 document.getElementById("java-single").addEventListener("input", calculateJava);
 document.getElementById("lait-single").addEventListener("input", calculateLait);
 document.getElementById("lait-double").addEventListener("input", calculateLait);
