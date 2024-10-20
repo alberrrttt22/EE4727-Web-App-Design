@@ -1,0 +1,11 @@
+To Do: 
+
+Case Study 5(i):
+- Make the price be editable when checkbox is clicked
+- Add submit button so that the admin can confirm the price changes
+- Update the price in the database once the submit button is clicked using PHP
+- The website then shows the updated price retrieved from the database
+
+When the checkbox is checked, the pricing will become an input box that can be edited
+There will be a submit button at the bottom, when the submit button is pressed, the Javascript file first checks if the data is valid (a non zero positive number and not empty) and the PHP script will handle the data and add to database.
+(Also the pricings on the menu page and admin menu page when the checkbox is not checked will be the pricings retreived from the database)

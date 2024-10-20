@@ -1,0 +1,194 @@
+/* ---------- GENERAL STYLINGS ---------- */
+
+header {
+    background-color: #D1B38E;
+    width:auto;
+    height:100px;
+    background-image: url("../images/header.PNG");      
+    background-size: 450px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.wrapper {
+    width:auto;
+    height:auto;
+    position:relative;
+}
+
+body {
+    background-color: #F5F5DE;
+    width: 80%;
+    min-width: 800px;
+    box-shadow: 7px 7px 5px black;
+	margin-left:auto; 
+	margin-right: auto;
+}
+
+footer {
+    background-color: #D1B38E;
+    width:auto;
+    height: 60px;
+    text-align: center;
+    font-size: small;
+    font-style: italic;
+}
+
+.navbar {
+    float: left;
+    width: 150px;
+    height: 100%;   
+    background-color: #E2D1B2;
+    position: absolute;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #864F30;
+    font-weight: bold;
+    font-size:large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a:hover{
+    color: #a38376;
+}
+
+nav a:active { 
+    color: #a38376;
+}
+
+h1 {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:24px;
+    padding-left:0;
+    margin-top:0;
+    color: #370106;
+}
+
+footer a {
+    color: #370106;
+}
+
+/* ---------- HOME STYLINGS ---------- */
+
+#homepage_image {
+    float:left;
+    padding-right:20px;
+    margin-left:20px;
+}
+
+.content {
+    margin-left:150px;
+    padding:20px;
+}
+
+ul#homelist {
+    list-style-image: url(../images/cup.png); 
+}
+
+/* ---------- MENU STYLINGS ---------- */
+
+table.menu {
+	margin: auto;
+	width: 70%;
+	color: rgb(46, 0, 0);
+}
+
+tr:nth-of-type(odd).menu-item {
+	background-color: rgb(210, 180, 140);
+}
+
+table .drink {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-align: center;
+}
+
+table .description{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table.menu td {
+	padding: 1em;
+}
+
+.prices{
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+}
+
+.legend{
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.subtotals{
+    font-size: 17px;
+}
+
+.total{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* ---------- MUSIC STYLINGS ---------- */
+.music {
+	width: 70%;
+	margin: auto;
+}
+
+.month {
+	background-color: rgb(226, 210, 176);
+	font-weight: bold;
+	text-transform: uppercase;
+	color: rgb(46, 0, 0);
+}
+
+.music-content, .music-player{
+	padding: 1em;
+}
+
+.artist {
+	vertical-align: top;
+	text-align: center;
+}
+
+.artist-img {
+	width: 50%;  
+    padding-top: 25px;
+}
+
+.player {
+	vertical-align: bottom;
+}
+
+td p {
+	margin: 0;
+}
+
+/* ---------- JOBS STYLINGS ---------- */
+
+table .item-name {
+	text-align: right;
+	vertical-align: top;
+	padding-left: 1em;
+	padding-right: 3em;
+}
+
+#start-error, #name-error, #email-error, #exp-error {
+    margin: 10px;
+    color:red;
+}
+
+/* ---------- ADMIN MENU STYLINGS ---------- */
+.checkbox {
+    height: 25px;
+    width: 25px;
+}
