@@ -1,40 +1,61 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
     // Get all checkboxes
-    var checkboxes = document.querySelectorAll('.checkbox');
+    const checkboxes = document.querySelectorAll('.checkbox');
 
-    // Loop through each checkbox
-    checkboxes.forEach((checkbox, index) =>{
-        checkbox.addEventListener('change', function(){
-            const priceSpans = document.querySelectorAll('span[name="pricing"]'); // Get all spans with name = "pricing" as an array
-            const priceSpan = priceSpans[index];
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            // Get the item name from the checkbox name
+            let itemName = this.name.split('-')[0]; // e.g., "java-checkbox" -> "java"
 
-            if (checkbox.checked){
-                // Convert the price span into an input field
-                const currentPrice = priceSpan.textContent;
-                const inputField = document.createElement('input');
-                // Input field specifications
-                inputField.type = 'text';
-                inputField.value = currentPrice;
-                inputField.classList.add('price-input');
+            // Find the pricing element based on the checkbox state
+            let pricingElements = document.querySelectorAll(`span[name="${itemName}-pricing"], input[name="${itemName}-price-input"]`);
 
-                priceSpan.replaceWith(inputField);
+            // Toggle between input and span
+            pricingElements.forEach(element => {
+                if (this.checked && element.tagName === 'SPAN') {
+                    // Replace span with an input field when checked
+                    let price = element.innerText;
 
-                // Focus on the input field for easier editing
-                inputField.focus();
+                    let input = document.createElement('input');
+                    input.type = 'text';
+                    input.name = `${itemName}-price-input`;
+                    input.value = price;
+                    input.size = 4; // Adjust input field size
 
-                // Handle what happens when the input loses focus when user is done editing
-                inputField.addEventListener('blur', function(){
-                    const newPrice = inputField.value;
+                    // Replace span with input
+                    element.replaceWith(input);
+                } 
 
-                    // Validation (input is a positive number and not empty)
-                    if (!isNaN(newPrice) && newPrice.trim() !== "" && newPrice > 0){
-                        priceSpan.textContent = newPrice; // !!!!!!!!!!!!!!!!!!
-                    } else {
-                        alert("Please enter a valid number.");
-                    }
-                })
+                // Disable the checkbox 
+                this.disabled = true
+            });
+        });
+    });
 
-            }
-        })
-    })
-})
+     // Validate input before form submission
+     const form = document.querySelector('form');
+     form.addEventListener('submit', function (event) {
+         let valid = true;
+ 
+         // Check each input for valid price
+         checkboxes.forEach(checkbox => {
+             if (checkbox.checked) {
+                 let itemName = checkbox.name.split('-')[0];
+                 let input = document.querySelector(`input[name="${itemName}-price-input"]`);
+                 if (input) {
+                     let price = parseFloat(input.value);
+                     // Validate that price is a non-zero positive number
+                     if (isNaN(price) || price <= 0) {
+                         valid = false;
+                         alert(`Please enter a valid positive number for ${itemName}.`);
+                     }
+                 }
+             }
+         });
+ 
+         // If not valid, prevent form submission
+         if (!valid) {
+             event.preventDefault();
+         }
+     });
+});
