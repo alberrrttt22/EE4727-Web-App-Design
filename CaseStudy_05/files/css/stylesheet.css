@@ -28,7 +28,7 @@ body {
 footer {
     background-color: #D1B38E;
     width:auto;
-    height: 60px;
+    height: 80px;
     text-align: center;
     font-size: small;
     font-style: italic;
@@ -198,4 +198,8 @@ table .item-name {
     width: 80px;
     margin: 20px auto;
     display: block;
+}
+
+#admin-menu {
+    color:black;
 }
