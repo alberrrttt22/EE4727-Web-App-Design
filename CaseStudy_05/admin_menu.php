@@ -24,13 +24,42 @@
 
         <?php
         // Connect to the database
-        $db = new mysqli('localhost', 'root', '', 'coffee_prices');
+        $db = new mysqli('localhost', 'root', '', 'javajam');
 
         if (mysqli_connect_errno()) {
             echo 'Error: Could not connect to database. Please try again later.';
             exit;
         }
+        // Create the table
+        $query = "CREATE TABLE IF NOT EXISTS coffee_prices (
+            id INT PRIMARY KEY,
+            coffee_name VARCHAR(255) NOT NULL,
+            price DECIMAL(10,2) NOT NULL);";
+        
+        // Execute the query
+        $db->query($query);
 
+        $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
+            SELECT 1, 'Java', 2.00
+            WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 1);";
+        $db->query($newQuery);
+        $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
+            SELECT 2, 'laitSingle', 2.00
+            WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 2);";
+        $db->query($newQuery);
+        $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
+            SELECT 3, 'laitDouble', 3.00
+            WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 3);";
+        $db->query($newQuery);
+        $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
+            SELECT 4, 'capSingle', 4.75
+            WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 4);";
+        $db->query($newQuery);
+        $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
+            SELECT 5, 'capDouble', 5.75
+            WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 5);";
+        $db->query($newQuery);
+        
         // Fetch the prices from the database
         $javaPriceQuery = $db->query("SELECT price FROM coffee_prices WHERE id = 1");
         $javaPrice = $javaPriceQuery->fetch_assoc()['price'];
@@ -51,7 +80,7 @@
         $db->close();
         ?>
 
-        <form action="/php/priceChange.php" method="POST">
+        <form action="files/php/priceChange.php" method="POST">
         <table class="menu">
             <tr class="menu-item">
                 <td class="drink">Just Java</td>
@@ -59,7 +88,7 @@
                     Regular house blend, decaffeinated coffee,
                     or flavor of the day.
                     <br>
-                    <strong>Endless Cup $<span name="java-pricing"><?php echo number_format($javaPrice, 2); ?></span></strong>
+                    <strong>Endless Cup $<span name="java-pricing" class="single"><?php echo number_format($javaPrice, 2); ?></span></strong>
                 </td>
                 <td><input type="checkbox" name="java-checkbox" class="checkbox"></td>
             </tr>
@@ -70,7 +99,7 @@
                     House blended coffee infused into a smooth
                     steamed milk.
                     <br>
-                    <strong>Single $<span name="lait-pricing"><?php echo number_format($laitSinglePrice, 2); ?></span> 
+                    <strong>Single $<span name="lait-pricing" class="single"><?php echo number_format($laitSinglePrice, 2); ?></span> 
                     Double $<span name="lait-pricing"><?php echo number_format($laitDoublePrice, 2); ?></span></strong>
                 </td>
                 <td><input type="checkbox" name="lait-checkbox" class="checkbox"></td>
@@ -83,7 +112,7 @@
                     milk and served in a
                     chilled glass.
                     <br>
-                    <strong>Single $<span name="cap-pricing"><?php echo number_format($capSinglePrice, 2); ?></span> 
+                    <strong>Single $<span name="cap-pricing" class="single"><?php echo number_format($capSinglePrice, 2); ?></span> 
                     Double $<span name="cap-pricing"><?php echo number_format($capDoublePrice, 2); ?></span></strong>
                 </td>
                 <td><input type="checkbox" name="cap-checkbox" class="checkbox"></td>

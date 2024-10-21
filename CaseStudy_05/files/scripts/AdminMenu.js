@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     let input = document.createElement('input');
                     input.type = 'text';
-                    if (this.class == "single"){
+                    if (element.classList.contains("single")){
                         input.name = `${itemName}-price-single`;
                     } else {
                         input.name = `${itemName}-price-double`;
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
          checkboxes.forEach(checkbox => {
              if (checkbox.checked) {
                  let itemName = checkbox.name.split('-')[0];
-                 let input = document.querySelector(`input[name="${itemName}-price-input"]`);
+                 let input = document.querySelector(`input[name="${itemName}-price-single"], input[name="${itemName}-price-double"] `);
                  if (input) {
                      let price = parseFloat(input.value);
                      // Validate that price is a non-zero positive number
