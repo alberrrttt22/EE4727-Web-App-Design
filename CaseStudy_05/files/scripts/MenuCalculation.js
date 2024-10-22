@@ -1,6 +1,5 @@
 function calculateJava() {
     var javaSingle = document.getElementById("java-single").value;
-    const javaPrice = 2;
 
     javaSingle = javaSingle ? parseFloat(javaSingle): 0;
     var javaSubtotal = javaSingle*javaPrice;
@@ -13,9 +12,6 @@ function calculateJava() {
 function calculateLait(){
     var laitSingle = document.getElementById("lait-single").value;
     var laitDouble = document.getElementById("lait-double").value;
-
-    const laitSinglePrice = 2
-    const laitDoublePrice = 3
 
     // Make sure empty fields default to 0
     laitSingle = laitSingle ? parseFloat(laitSingle): 0 // This is shorthand for an if-else statement
@@ -31,9 +27,6 @@ function calculateLait(){
 function calculateCap(){
     var capSingle = document.getElementById("cap-single").value;
     var capDouble = document.getElementById("cap-double").value;
-
-    const capSinglePrice = 4.75;
-    const capDoublePrice = 5.75;
 
     capSingle = capSingle ? parseFloat(capSingle): 0;
     capDouble = capDouble ? parseFloat(capDouble) : 0;

@@ -40,23 +40,23 @@
         $db->query($query);
 
         $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
-            SELECT 1, 'Java', 2.00
+            SELECT 1, 'Just Java', 2.00
             WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 1);";
         $db->query($newQuery);
         $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
-            SELECT 2, 'laitSingle', 2.00
+            SELECT 2, 'Cafe au Lait Single', 2.00
             WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 2);";
         $db->query($newQuery);
         $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
-            SELECT 3, 'laitDouble', 3.00
+            SELECT 3, 'Cafe au Lait Double ', 3.00
             WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 3);";
         $db->query($newQuery);
         $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
-            SELECT 4, 'capSingle', 4.75
+            SELECT 4, 'Cappuccino Single', 4.75
             WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 4);";
         $db->query($newQuery);
         $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
-            SELECT 5, 'capDouble', 5.75
+            SELECT 5, 'Cappuccino Double', 5.75
             WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 5);";
         $db->query($newQuery);
         
@@ -118,15 +118,16 @@
                 <td><input type="checkbox" name="cap-checkbox" class="checkbox"></td>
             </tr>
         </table>
-        <input id="submit" type="submit" value="Submit">
+        <input id="submit" type="submit" value="Confirm">
         </form>
     </div>
 </div>
 <script type="text/javascript" src="files/scripts/AdminMenu.js"></script>
 <footer>
     <br>Copyright &copy; 2014 JavaJam Coffee House
-    <br> <a href=mailto:albert@zaw.com>albert@zaw.com</a>
-    <br> <a id="admin-menu" href="admin_menu.html">Admin</a>    
+    <br> <a id="admin-menu" href="admin_menu.html">Admin</a> 
+    <a id="daily-sales" href="dailySales.php">Daily Sales Report</a>
+    <br> <a href=mailto:albert@zaw.com>albert@zaw.com</a> 
 </footer>
 </body>
 </html>

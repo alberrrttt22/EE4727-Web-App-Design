@@ -199,7 +199,32 @@ table .item-name {
     margin: 20px auto;
     display: block;
 }
-
-#admin-menu {
-    color:black;
+#admin-menu, #daily-sales {
+    display: inline;
+    margin: 5px;
 }
+
+/* ---------- SALES REPORT STYLINGS ---------- */
+.report{
+    font-size: 20px;
+}
+
+.report td{
+    padding: 10px;
+}
+
+.popular, .no-data-msg{
+    font-weight: bold;
+    display: inline;
+    text-decoration: underline;
+}
+
+.report-table th, .report-table td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.report-head{
+    padding: 10px;
+}
+

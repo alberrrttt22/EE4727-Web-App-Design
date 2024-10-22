@@ -14,7 +14,18 @@ Case Study 5(ii):
 
 - Add checkout button to menu page
 - Allow retrieval of price from database on menu page
-- Allow checkout button to insert the order into the database
+- Allow checkout button to insert the order into the database (plan a table for the customer orders)
+
+customer table => (id, coffee_id, quantit)
+
 - Create a daily sales report page and add the link to all other pages
 - Add a checkbox and by checking the checkbox, the information appears
 - Allow retrieval from database so the popular option will always appear
+
+
+SELECT cp.coffee_name, SUM(co.subtotal) AS total_subtotal
+                    FROM customer_orders co
+                    JOIN coffee_prices cp ON co.id = cp.id
+                    GROUP BY co.id
+                    ORDER BY total_subtotal DESC
+                    LIMIT 1;
