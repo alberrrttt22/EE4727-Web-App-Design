@@ -1,17 +1,5 @@
 <?php 
-@ $db = new mysqli('localhost', 'root', '', 'javajam');
-
-$init = ("CREATE TABLE IF NOT EXISTS customer_orders (
-    num INT AUTO_INCREMENT,
-    customer_order_id BIGINT,
-    -- customer_order_id VARCHAR(255),
-    id INT,
-    price DECIMAL(10,2),
-    quantity INT,
-    subtotal DECIMAL(10,2),
-    PRIMARY KEY (num)
-    );"
-);
+include 'connect.php';
 
 $db->query($init);
 
@@ -22,6 +10,8 @@ $customerOrderID = date("YmdHis");
 // }
 // $customerOrderID = $_SESSION['session_id'];
 
+$success = false;
+
 if ($_POST["java-single"]) {
     $javaSingle = $_POST["java-single"];
     $query = ("INSERT INTO customer_orders (customer_order_id, id, price, quantity, subtotal)
@@ -30,6 +20,8 @@ if ($_POST["java-single"]) {
         WHERE id = 1;"
     );
     $db->query($query);
+    header('Location: ../../menu.php?message=success');
+    $success = true;
 }
 
 if ($_POST["lait-single"]) {
@@ -40,6 +32,8 @@ if ($_POST["lait-single"]) {
         WHERE id = 2;"
     );
     $db->query($query);
+    header('Location: ../../menu.php?message=success');
+    $success = true;
 }
 
 if ($_POST["lait-double"]) {
@@ -50,6 +44,8 @@ if ($_POST["lait-double"]) {
         WHERE id = 3;"
     );
     $db->query($query);
+    header('Location: ../../menu.php?message=success');
+    $success = true;
 }
 
 if ($_POST["cap-single"]) {
@@ -60,6 +56,8 @@ if ($_POST["cap-single"]) {
         WHERE id = 4;"
     );
     $db->query($query);
+    header('Location: ../../menu.php?message=success');
+    $success = true;
 }
 
 if ($_POST["cap-double"]) {
@@ -70,10 +68,15 @@ if ($_POST["cap-double"]) {
         WHERE id = 5;"
     );
     $db->query($query);
+    header('Location: ../../menu.php?message=success');
+    $success = true;
 }
 
 $db->close();
 
-header('Location: ../../menu.php?message=success');
+if (!$success){
+header('Location: ../../menu.php?message=fail');
+}
+
 exit();
 ?>

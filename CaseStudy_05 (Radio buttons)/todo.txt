@@ -29,3 +29,8 @@ SELECT cp.coffee_name, SUM(co.subtotal) AS total_subtotal
                     GROUP BY co.id
                     ORDER BY total_subtotal DESC
                     LIMIT 1;
+
+
+Changing menu to radio button:
+
+- Change checkout.php to reflect the correct variable names

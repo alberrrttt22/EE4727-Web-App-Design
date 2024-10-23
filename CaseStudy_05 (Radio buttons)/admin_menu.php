@@ -4,6 +4,9 @@ if (isset($_GET['message']) && $_GET['message'] === 'success') {
     echo "<script>alert('Prices updated successfully!');</script>";
     echo "<script>window.location.href = 'admin_menu.php';</script>";
     exit();
+} else if (isset($_GET['message']) && $_GET['message'] === 'fail') {
+    echo "<script>alert('No update was made');</script>";
+    echo "<script>window.location.href = 'admin_menu.php';</script>";
 }
 ?>
 <!doctype html>

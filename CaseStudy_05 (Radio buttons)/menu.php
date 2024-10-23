@@ -2,6 +2,9 @@
 	if (isset($_GET['message']) && $_GET['message'] == 'success') {
 		echo "<script> alert('Order placed successfully');";
 		echo "window.location.href = 'menu.php'; </script>";
+	} else if (isset($_GET['message']) && $_GET['message'] == 'fail'){
+		echo "<script> alert('No order was placed');";
+		echo "window.location.href = 'menu.php'; </script>";
 	}
 
 ?>
@@ -90,8 +93,7 @@
 			<tr class="legend">
 				<td></td>
 				<td></td>
-				<td>Single<br>(Quantity):</td>
-				<td>Double<br>(Quantity):</td>
+				<td>Quantity:</td>
 				<td>Subtotal:</td>
 			</tr>
 			<tr class="menu-item">
@@ -103,9 +105,8 @@
 					<strong>Endless Cup $<span name="java-pricing"><?php echo number_format($javaPrice, 2); ?></span></strong>
 				</td>
 				<td>
-					<input type="number" name="java-single" id="java-single" class="prices" min="0">
+					<input type="number" name="java-quantity" id="java-quantity" class="prices" min="0">
 				</td>
-				<td></td>
 				<td>
 					<span id="java-price" class="subtotals">$0.00</span>
 				</td>
@@ -117,13 +118,10 @@
 					House blended coffee infused into a smooth
 					steamed milk.
 					<br>
-					<strong>Single $<span name="lait-pricing-single"><?php echo number_format($laitSinglePrice, 2); ?></span> Double $<span name="lait-pricing-double"><?php echo number_format($laitDoublePrice, 2); ?></span></strong>
+					<strong><input type="radio" name="lait" id="lait-single" checked>Single $<span name="lait-pricing-single"><?php echo number_format($laitSinglePrice, 2); ?></span><br><input type="radio" name="lait" id="lait-double"> Double $<span name="lait-pricing-double"><?php echo number_format($laitDoublePrice, 2); ?></span></strong>
 				</td>
 				<td>
-					<input type="number" name="lait-single" id="lait-single" class="prices" min="0">
-				</td>
-				<td>
-					<input type="number" name="lait-double" id="lait-double" class="prices" min="0">
+					<input type="number" name="lait-quantity" id="lait-quantity" class="prices" min="0">
 				</td>
 				<td>
 					<span id="lait-price" class="subtotals">$0.00</span>
@@ -137,13 +135,10 @@
 					milk and served in a
 					chilled glass.
 					<br>
-					<strong>Single $<span name="cap-pricing-single"><?php echo number_format($capSinglePrice, 2); ?></span> Double $<span name="cap-pricing-double"><?php echo number_format($capDoublePrice, 2); ?></span></strong>
+					<strong><input type="radio" name="cap" id="cap-single" checked>Single $<span name="cap-pricing-single"><?php echo number_format($capSinglePrice, 2); ?><br></span> <input type="radio" name="cap" id="cap-double">Double $<span name="cap-pricing-double"><?php echo number_format($capDoublePrice, 2); ?></span></strong>
 				</td>
 				<td>
-					<input type="number" name="cap-single" id="cap-single" class="prices" min="0">
-				</td>
-				<td>
-					<input type="number" name="cap-double" id="cap-double" class="prices" min="0">
+					<input type="number" name="cap-quantity" id="cap-quantity" class="prices" min="0">
 				</td>
 				<td>
 					<span id="cap-price" class="subtotals">$0.00</span>
@@ -152,14 +147,12 @@
 			<tr>
 				<td></td>
 				<td></td>
-				<td></td>
 				<td class="total">Total Price: </td>
 				<td class="total">
 					<span id="total-price">$0.00</span>
 				</td>
 			</tr>
 			<tr>
-				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>

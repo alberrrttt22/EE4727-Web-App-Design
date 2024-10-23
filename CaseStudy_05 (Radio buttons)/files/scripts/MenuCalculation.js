@@ -1,6 +1,5 @@
 function calculateJava() {
-    var javaSingle = document.getElementById("java-single").value;
-
+    var javaSingle = document.getElementById("java-quantity").value;
     javaSingle = javaSingle ? parseFloat(javaSingle): 0;
     var javaSubtotal = javaSingle*javaPrice;
     var javaText = document.getElementById("java-price")
@@ -10,29 +9,41 @@ function calculateJava() {
 }
 
 function calculateLait(){
-    var laitSingle = document.getElementById("lait-single").value;
-    var laitDouble = document.getElementById("lait-double").value;
+    var laitQuantity = document.getElementById("lait-quantity").value;
 
     // Make sure empty fields default to 0
-    laitSingle = laitSingle ? parseFloat(laitSingle): 0 // This is shorthand for an if-else statement
-    laitDouble = laitDouble ? parseFloat(laitDouble) : 0 // condition ? trueValue : falseValue
+    laitQuantity = laitQuantity ? parseFloat(laitQuantity): 0 // This is shorthand for an if-else statement, condition ? trueValue : falseValue
 
-    var laitText = document.getElementById("lait-price")
-    var laitSubtotal = laitSinglePrice*laitSingle + laitDoublePrice*laitDouble;
+    var laitText = document.getElementById("lait-price");
+    const laitSingle = document.getElementById('lait-single');
+    // const laitDouble = document.getElementById('lait-double');
+    if(laitSingle.checked){
+        var laitPrice = laitSinglePrice;
+    } else{
+        var laitPrice = laitDoublePrice;
+    }
+    var laitSubtotal = laitQuantity*laitPrice
     laitText.textContent = `$${laitSubtotal.toFixed(2)}`;
 
     calculateTotal();
 }
 
 function calculateCap(){
-    var capSingle = document.getElementById("cap-single").value;
-    var capDouble = document.getElementById("cap-double").value;
+    var capQuantity = document.getElementById("cap-quantity").value;
 
-    capSingle = capSingle ? parseFloat(capSingle): 0;
-    capDouble = capDouble ? parseFloat(capDouble) : 0;
+    capQuantity = capQuantity ? parseFloat(capQuantity): 0;
 
-    var capText = document.getElementById("cap-price")
-    var capSubtotal = capSinglePrice*capSingle + capDoublePrice*capDouble;
+    var capText = document.getElementById("cap-price");
+    var capSingle = document.getElementById('cap-single');
+    // var capDouble = document.getElementById('cap-double');
+
+    if (capSingle.checked){
+        var capPrice = capSinglePrice;
+    } else{
+        var capPrice = capDoublePrice;
+    }
+
+    var capSubtotal = capQuantity*capPrice;
     capText.textContent = `$${capSubtotal.toFixed(2)}`;
 
     calculateTotal();
@@ -65,9 +76,13 @@ document.querySelectorAll('.prices').forEach(function(input) {
         }
     });
 });
-document.getElementById("java-single").addEventListener("input", calculateJava);
-document.getElementById("lait-single").addEventListener("input", calculateLait);
-document.getElementById("lait-double").addEventListener("input", calculateLait);
-document.getElementById("cap-single").addEventListener("input", calculateCap);
-document.getElementById("cap-double").addEventListener("input", calculateCap);
+document.getElementById("java-quantity").addEventListener("input", calculateJava);
+
+document.getElementById("lait-quantity").addEventListener("input", calculateLait);
+document.getElementById('lait-single').addEventListener('change', calculateLait);
+document.getElementById('lait-double').addEventListener('change', calculateLait);
+
+document.getElementById("cap-quantity").addEventListener("input", calculateCap);
+document.getElementById('cap-single').addEventListener('change', calculateCap);
+document.getElementById('cap-double').addEventListener('change', calculateCap);
 
