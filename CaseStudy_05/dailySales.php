@@ -31,13 +31,19 @@
         <td colspan="2">
             <?php 
             include 'files/php/connect.php';
-            $query = ("SELECT co.id, cp.coffee_name, SUM(co.quantity) AS total_quantity, SUM(co.subtotal) AS total_dollars
+            $query = ("SELECT coffee_name,
+                    CASE
+                        WHEN cp.id = 1 THEN 'Just Java'
+                        WHEN cp.id IN (2, 3) THEN 'Cafe au Lait' 
+                        WHEN cp.id IN (4, 5) THEN 'Iced Cappuccino'
+                    END AS coffee_type,
+                    SUM(co.subtotal) AS total_subtotal,
+                    SUM(co.quantity) AS total_quantity
                 FROM customer_orders co
                 JOIN coffee_prices cp ON co.id = cp.id
-                GROUP BY cp.coffee_name
+                GROUP BY coffee_type
                 ORDER BY co.id ASC;"
                 );
-            
             $productSales = $db->query($query);
 
             if ($productSales && $productSales->num_rows > 0) {
@@ -51,9 +57,9 @@
                 while ($row = $productSales->fetch_assoc()){
                     echo 
                     "<tr>
-                        <td>{$row['coffee_name']}</td>
+                        <td>{$row['coffee_type']}</td>
                         <td>{$row['total_quantity']}</td>
-                        <td>{$row['total_dollars']}</td>
+                        <td>{$row['total_subtotal']}</td>
                     </tr>";
                 }
                 echo "</table>";
@@ -77,7 +83,7 @@
                 CASE
                     WHEN cp.coffee_name LIKE '%Single%' THEN 'Single'
                     WHEN cp.coffee_name LIKE '%Double%' THEN 'Double'
-                    ELSE 'Just Java'
+                    ELSE 'Null'
                 END AS category,
                 SUM(co.quantity) AS total_quantity, SUM(co.price) AS total_dollars
                 FROM customer_orders co
@@ -169,7 +175,7 @@
 <script type="text/javascript" src="files/scripts/salesReport.js"></script>
 <footer>
 	<br>Copyright &copy; 2014 JavaJam Coffee House
-	<br> <a id= "admin-menu" href="admin_menu.html">Admin</a>
+	<br> <a id= "admin-menu" href="admin_menu.php">Admin</a>
     <a id="daily-sales" href="dailySales.php">Daily Sales Report</a>
     <br> <a href=mailto:albert@zaw.com>albert@zaw.com</a>	
 </footer>

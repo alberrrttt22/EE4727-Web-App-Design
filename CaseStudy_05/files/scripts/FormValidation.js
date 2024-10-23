@@ -51,7 +51,7 @@ function validateStartDate() {
         return false;
     }
     
-    if (startDate.getDate() === currentDate.getDate()){
+    if (startDate.getDate() == currentDate.getDate()){
         startError.textContent = "Start date cannot be today."
         return false;
     }

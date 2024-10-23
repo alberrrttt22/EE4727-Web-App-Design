@@ -30,7 +30,6 @@ if ($_POST["java-single"]) {
         WHERE id = 1;"
     );
     $db->query($query);
-    echo("Just Java order placed successfully. </br>");
 }
 
 if ($_POST["lait-single"]) {
@@ -41,7 +40,6 @@ if ($_POST["lait-single"]) {
         WHERE id = 2;"
     );
     $db->query($query);
-    echo("Cafe au Lait Single order placed successfully. </br>");
 }
 
 if ($_POST["lait-double"]) {
@@ -52,7 +50,6 @@ if ($_POST["lait-double"]) {
         WHERE id = 3;"
     );
     $db->query($query);
-    echo("Cafe au Lait Double order placed successfully. </br>");
 }
 
 if ($_POST["cap-single"]) {
@@ -63,7 +60,6 @@ if ($_POST["cap-single"]) {
         WHERE id = 4;"
     );
     $db->query($query);
-    echo("Cappucino Single order placed successfully. </br>");
 }
 
 if ($_POST["cap-double"]) {
@@ -74,12 +70,10 @@ if ($_POST["cap-double"]) {
         WHERE id = 5;"
     );
     $db->query($query);
-    echo("Cappucino Double order placed successfully. </br>");
 }
-
-echo("Click <a href=\"../../menu.php\">Menu</a> to go back to menu");
-
 
 $db->close();
 
+header('Location: ../../menu.php?message=success');
+exit();
 ?>

@@ -1,3 +1,11 @@
+<?php
+// Show an alert message when price update is successful and redirect back to admin_menu page
+if (isset($_GET['message']) && $_GET['message'] === 'success') {
+    echo "<script>alert('Prices updated successfully!');</script>";
+    echo "<script>window.location.href = 'admin_menu.php';</script>";
+    exit();
+}
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -125,7 +133,7 @@
 <script type="text/javascript" src="files/scripts/AdminMenu.js"></script>
 <footer>
     <br>Copyright &copy; 2014 JavaJam Coffee House
-    <br> <a id="admin-menu" href="admin_menu.html">Admin</a> 
+    <br> <a id="admin-menu" href="admin_menu.php">Admin</a> 
     <a id="daily-sales" href="dailySales.php">Daily Sales Report</a>
     <br> <a href=mailto:albert@zaw.com>albert@zaw.com</a> 
 </footer>

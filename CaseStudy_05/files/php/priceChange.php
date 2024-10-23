@@ -55,10 +55,12 @@ if (isset($_POST['cap-price-double'])) {
         $success = false; // Set success to false if the query fails
     }
 }
-echo("Values changed successfully. Click <a href=\"../../admin_menu.php\">admin</a> to go back.");
 
+header('Location: ../../admin_menu.php?message=success');
+   
 // Close the database connection
 $db->close();
+exit();
 
 // if ($success) {
 //     header("Location: ../admin_menu.php?success=1");

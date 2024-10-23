@@ -1,3 +1,10 @@
+<?php
+	if (isset($_GET['message']) && $_GET['message'] == 'success') {
+		echo "<script> alert('Order placed successfully');";
+		echo "window.location.href = 'menu.php'; </script>";
+	}
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
