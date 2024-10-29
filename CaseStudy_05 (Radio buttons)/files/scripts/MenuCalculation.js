@@ -68,14 +68,22 @@ function calculateTotal(){
 }
 
 
-document.querySelectorAll('.prices').forEach(function(input) {
-    input.addEventListener('input', function(){
-        // If the value is less than 0, reset it to 0
-        if (this.value < 0){
-            this.value = 0;
-        }
-    });
-});
+// function validateForm() {
+//     // Get quantity values from the form
+//     const javaQuantity = document.getElementById("java-quantity").value;
+//     const laitQuantity = document.getElementById("lait-quantity").value;
+//     const capQuantity = document.getElementById("cap-quantity").value;
+
+//     if (javaQuantity < 0 || laitQuantity < 0 || capQuantity < 0) {
+//         alert("Quantities cannot be negative. Please enter a positive number.");
+//         return false; // Prevent form submission
+//     }
+
+//     // If all checks pass, allow form submission
+//     return true;
+// }
+
+
 document.getElementById("java-quantity").addEventListener("input", calculateJava);
 
 document.getElementById("lait-quantity").addEventListener("input", calculateLait);
@@ -86,3 +94,15 @@ document.getElementById("cap-quantity").addEventListener("input", calculateCap);
 document.getElementById('cap-single').addEventListener('change', calculateCap);
 document.getElementById('cap-double').addEventListener('change', calculateCap);
 
+document.addEventListener("DOMContentLoaded", function () {
+    const quantityInputs = document.querySelectorAll("input[type='number'].prices");
+
+    quantityInputs.forEach((input) => {
+        input.addEventListener("input", function () {
+            if (input.value < 0) {
+                alert("Quantity must be positive.");
+                input.value = "";  // Clear the input field
+            }
+        });
+    });
+});

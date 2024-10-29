@@ -85,7 +85,7 @@
                     WHEN cp.coffee_name LIKE '%Double%' THEN 'Double'
                     ELSE 'Null'
                 END AS category,
-                SUM(co.quantity) AS total_quantity, SUM(co.price) AS total_dollars
+                SUM(co.quantity) AS total_quantity, SUM(co.subtotal) AS total_dollars
                 FROM customer_orders co
                 JOIN coffee_prices cp ON co.id = cp.id
                 GROUP BY category
@@ -154,10 +154,20 @@
 
                 if ($popular && $popular->num_rows > 0){
                     $row = $popular->fetch_assoc();
-
                     // Check if there is a result
                     if ($row) {
-                        echo $row['coffee_name'];
+                        // Extract "Single" or "Double" from the coffee_name
+                        if (strpos($row['coffee_name'], 'Single') !== false) {
+                            $size = 'Single';
+                        } elseif (strpos($row['coffee_name'], 'Double') !== false) {
+                            $size = 'Double';
+                            } else {
+                            $size = 'Null';
+                    }
+                    $coffee_type = $row['coffee_type'];
+        
+                    // Display the output as "(most popular type) of (best selling coffee)"
+                    echo "$size of $coffee_type";
                     } 
                 } else{
                     echo "No sales data available";
