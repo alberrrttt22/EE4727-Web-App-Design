@@ -1,6 +1,12 @@
 function calculateJava() {
     var javaSingle = document.getElementById("java-quantity").value;
     javaSingle = javaSingle ? parseFloat(javaSingle): 0;
+    const input = document.querySelector("input[type='number']#java-quantity");
+    if (javaSingle < 0){
+        alert("Quantity must be positive.");
+        input.value = "";  // Clear the input field
+        return 0;
+    }
     var javaSubtotal = javaSingle*javaPrice;
     var javaText = document.getElementById("java-price")
     javaText.textContent = `$${javaSubtotal.toFixed(2)}`; // Format to 2dp
@@ -13,7 +19,12 @@ function calculateLait(){
 
     // Make sure empty fields default to 0
     laitQuantity = laitQuantity ? parseFloat(laitQuantity): 0 // This is shorthand for an if-else statement, condition ? trueValue : falseValue
-
+    const input = document.querySelector("input[type='number']#lait-quantity");
+    if (laitQuantity < 0){
+        alert("Quantity must be positive.");
+        input.value = "";  // Clear the input field
+        return 0;
+    }
     var laitText = document.getElementById("lait-price");
     const laitSingle = document.getElementById('lait-single');
     // const laitDouble = document.getElementById('lait-double');
@@ -32,7 +43,12 @@ function calculateCap(){
     var capQuantity = document.getElementById("cap-quantity").value;
 
     capQuantity = capQuantity ? parseFloat(capQuantity): 0;
-
+    const input = document.querySelector("input[type='number']#cap-quantity");
+    if (capQuantity < 0){
+        alert("Quantity must be positive.");
+        input.value = "";  // Clear the input field
+        return 0;
+    }
     var capText = document.getElementById("cap-price");
     var capSingle = document.getElementById('cap-single');
     // var capDouble = document.getElementById('cap-double');
@@ -94,15 +110,15 @@ document.getElementById("cap-quantity").addEventListener("input", calculateCap);
 document.getElementById('cap-single').addEventListener('change', calculateCap);
 document.getElementById('cap-double').addEventListener('change', calculateCap);
 
-document.addEventListener("DOMContentLoaded", function () {
-    const quantityInputs = document.querySelectorAll("input[type='number'].prices");
+// document.addEventListener("DOMContentLoaded", function () {
+//     const quantityInputs = document.querySelectorAll("input[type='number'].prices");
 
-    quantityInputs.forEach((input) => {
-        input.addEventListener("input", function () {
-            if (input.value < 0) {
-                alert("Quantity must be positive.");
-                input.value = "";  // Clear the input field
-            }
-        });
-    });
-});
+//     quantityInputs.forEach((input) => {
+//         input.addEventListener("input", function () {
+//             if (input.value < 0) {
+//                 alert("Quantity must be positive.");
+//                 input.value = "";  // Clear the input field
+//             }
+//         });
+//     });
+// });
