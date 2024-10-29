@@ -85,7 +85,7 @@
                     WHEN cp.coffee_name LIKE '%Double%' THEN 'Double'
                     ELSE 'Null'
                 END AS category,
-                SUM(co.quantity) AS total_quantity, SUM(co.price) AS total_dollars
+                SUM(co.quantity) AS total_quantity, SUM(co.subtotal) AS total_dollars
                 FROM customer_orders co
                 JOIN coffee_prices cp ON co.id = cp.id
                 GROUP BY category
