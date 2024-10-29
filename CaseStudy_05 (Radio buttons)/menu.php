@@ -108,7 +108,8 @@
 					<input type="number" name="java-quantity" id="java-quantity" class="prices" min="0">
 				</td>
 				<td>
-					<span id="java-price" class="subtotals">$0.00</span>
+					<span id="java-price" class="
+					subtotals">$0.00</span>
 				</td>
 			</tr>
 
@@ -118,7 +119,7 @@
 					House blended coffee infused into a smooth
 					steamed milk.
 					<br>
-					<strong><input type="radio" name="lait" id="lait-single" checked>Single $<span name="lait-pricing-single"><?php echo number_format($laitSinglePrice, 2); ?></span><br><input type="radio" name="lait" id="lait-double"> Double $<span name="lait-pricing-double"><?php echo number_format($laitDoublePrice, 2); ?></span></strong>
+					<strong><input type="radio" name="lait" id="lait-single" value="lait-single" checked>Single $<span name="lait-pricing-single"><?php echo number_format($laitSinglePrice, 2); ?></span><br><input type="radio" name="lait" id="lait-double" value="lait-double"> Double $<span name="lait-pricing-double"><?php echo number_format($laitDoublePrice, 2); ?></span></strong>
 				</td>
 				<td>
 					<input type="number" name="lait-quantity" id="lait-quantity" class="prices" min="0">
@@ -135,7 +136,7 @@
 					milk and served in a
 					chilled glass.
 					<br>
-					<strong><input type="radio" name="cap" id="cap-single" checked>Single $<span name="cap-pricing-single"><?php echo number_format($capSinglePrice, 2); ?><br></span> <input type="radio" name="cap" id="cap-double">Double $<span name="cap-pricing-double"><?php echo number_format($capDoublePrice, 2); ?></span></strong>
+					<strong><input type="radio" name="cap" id="cap-single" value="cap-single" checked>Single $<span name="cap-pricing-single"><?php echo number_format($capSinglePrice, 2); ?><br></span> <input type="radio" name="cap" id="cap-double" value="cap-double">Double $<span name="cap-pricing-double"><?php echo number_format($capDoublePrice, 2); ?></span></strong>
 				</td>
 				<td>
 					<input type="number" name="cap-quantity" id="cap-quantity" class="prices" min="0">

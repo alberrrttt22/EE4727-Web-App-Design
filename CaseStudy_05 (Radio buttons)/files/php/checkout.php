@@ -12,10 +12,10 @@ $customerOrderID = date("YmdHis");
 
 $success = false;
 
-if ($_POST["java-single"]) {
-    $javaSingle = $_POST["java-single"];
+if ($_POST["java-quantity"]) {
+    $javaQuantity = $_POST["java-quantity"];
     $query = ("INSERT INTO customer_orders (customer_order_id, id, price, quantity, subtotal)
-        SELECT $customerOrderID, id, price, $javaSingle, price*$javaSingle 
+        SELECT $customerOrderID, id, price, $javaQuantity, price*$javaQuantity 
         FROM coffee_prices
         WHERE id = 1;"
     );
@@ -24,8 +24,8 @@ if ($_POST["java-single"]) {
     $success = true;
 }
 
-if ($_POST["lait-single"]) {
-    $laitSingle = $_POST["lait-single"];
+if ($_POST["lait-quantity"] && $_POST["lait"] == "lait-single") {
+    $laitSingle = $_POST["lait-quantity"];
     $query = ("INSERT INTO customer_orders (customer_order_id, id, price, quantity, subtotal)
         SELECT $customerOrderID, id, price, $laitSingle, price*$laitSingle 
         FROM coffee_prices
@@ -36,8 +36,8 @@ if ($_POST["lait-single"]) {
     $success = true;
 }
 
-if ($_POST["lait-double"]) {
-    $laitDouble = $_POST["lait-double"];
+if ($_POST["lait-quantity"] && $_POST["lait"] == "lait-double") {
+    $laitDouble = $_POST["lait-quantity"];
     $query = ("INSERT INTO customer_orders (customer_order_id, id, price, quantity, subtotal)
         SELECT $customerOrderID, id, price, $laitDouble, price*$laitDouble
         FROM coffee_prices
@@ -48,8 +48,8 @@ if ($_POST["lait-double"]) {
     $success = true;
 }
 
-if ($_POST["cap-single"]) {
-    $capSingle = $_POST["cap-single"];
+if ($_POST["cap-quantity"] && $_POST["cap"] == "cap-single") {
+    $capSingle = $_POST["cap-quantity"];
     $query = ("INSERT INTO customer_orders (customer_order_id, id, price, quantity, subtotal)
         SELECT $customerOrderID, id, price, $capSingle, price*$capSingle 
         FROM coffee_prices
@@ -60,8 +60,8 @@ if ($_POST["cap-single"]) {
     $success = true;
 }
 
-if ($_POST["cap-double"]) {
-    $capDouble = $_POST["cap-double"];
+if ($_POST["cap-quantity"] && $_POST["cap"] == "cap-double") {
+    $capDouble = $_POST["cap-quantity"];
     $query = ("INSERT INTO customer_orders (customer_order_id, id, price, quantity, subtotal)
         SELECT $customerOrderID, id, price, $capDouble, price*$capDouble
         FROM coffee_prices
