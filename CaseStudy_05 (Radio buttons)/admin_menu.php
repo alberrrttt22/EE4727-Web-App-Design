@@ -63,11 +63,11 @@ if (isset($_GET['message']) && $_GET['message'] === 'success') {
             WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 3);";
         $db->query($newQuery);
         $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
-            SELECT 4, 'Cappuccino Single', 4.75
+            SELECT 4, 'Iced Cappuccino Single', 4.75
             WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 4);";
         $db->query($newQuery);
         $newQuery = "INSERT INTO coffee_prices (id, coffee_name, price)
-            SELECT 5, 'Cappuccino Double', 5.75
+            SELECT 5, 'Iced Cappuccino Double', 5.75
             WHERE NOT EXISTS (SELECT 1 FROM coffee_prices WHERE id = 5);";
         $db->query($newQuery);
         
